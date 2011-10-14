@@ -1,4 +1,4 @@
-==smFilteredPagination==
+# smFilteredPagination
 Version: 0.5
 Author: Tyler Mulligan (www.saltermitchell.com)
 
@@ -55,9 +55,11 @@ flexible pagination solution.
 
 Please read the source and check out the demos for more information.
 
+## LIVE EXAMPLE
+http://www.dev4.us/jquery-plugins/smFilteredPagination/
 
-TODO:
+## TODO:
 
 - Ajax support
 - More public methods
-- 
+- Default themes
