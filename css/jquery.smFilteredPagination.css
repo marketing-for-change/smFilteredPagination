@@ -1,0 +1,63 @@
+/*
+ * smFilteredPagination - jQuery pagination that also compensates
+ * for dynamically filtered items
+ *
+ * Copyright (c) 2011 Tyler Mulligan, SalterMitchell
+ *
+ * Licensed under the MIT license:
+ *   http://www.opensource.org/licenses/mit-license.php
+ *
+ * More at http://www.github.com/saltermitchell
+ * and http://www.saltermitchell.com
+ * 
+ */
+.pagination {
+    font-size:80%;
+    list-style:none;
+    text-align:center;
+    padding:2px;
+}
+.pagination ul { padding:0; margin:0; }
+.pagination li {
+    display:inline;
+}
+        
+.pagination a {
+    text-decoration: none;
+	border: solid 1px #999;
+	color: #15B;
+}
+.pagination a:hover {
+    color:#333;
+    background-color:#eee;
+}
+.pagination a, .pagination span {
+    display: inline-block;
+    padding: 3px;
+    margin-right: 4px;
+	min-width:1em;
+	text-align:center;
+	background-color:#BEDBE9;
+	color:#78787A;
+	font-size: 11px;
+	border: none;
+}
+.pagination span {
+    background-color:#F2FBFF;
+} 
+
+.pagination .current {
+    background:none repeat scroll 0 0 #00AEEF;
+    color: #000000;
+}
+
+.pagination .current.prev, .pagination .current.next{
+	color:#C1C0C6;
+	background:#fff;
+}
+.hide, .filtered {
+    display:none;
+}
+div.item { padding:2px; }
+div.item:nth-child(even) { background-color:#fff; }
+div.item:nth-child(odd) { background-color:#eee; }
