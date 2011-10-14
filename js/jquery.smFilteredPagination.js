@@ -39,7 +39,7 @@
             hiddenClass: "hide",                // name of hidden class
             filteredClassList: ".filtered",     // comma separated list of filtered classes
             handleLocationHash: true,           // handle page numbers with the location hash, page.php#5
-            scrollToTopOnChange: false,          // Scroll to the top of the page on change.
+            scrollToTopOnChange: false,         // Scroll to the top of the page on change.
             insertPagerHeader: function(el) {   // insertPageHeader function
                 var pagerContents = '<div id="' + this.pagerHeader + '" class="' + this.pagerClass + '"></div>';
                 if ($("#"+this.pagerHeader).length) { $("#"+this.pagerHeader).html(pagerContents); }
@@ -117,7 +117,7 @@
                 if (location.hash!="#" && location.hash!="" && location.hash!=null) {
                     var hash=location.hash.substr(1);
                     if (isNumber.test(hash)) {
-                        $("a", plugin.settings.tpagerClass).not(".first,.prev").eq(hash-1).click(); // shitty hack for now
+                        $("a", plugin.settings.tpagerClass).not(".first,.prev").eq(hash-1).click(); // lazy hack for now
                     }
                 }
             }
@@ -201,7 +201,6 @@
                 plugin.settings.insertPagerFooter(plugin.el);
                 buildPager(plugin.settings.tpagerFooter,pageCount,currentPage);
             }
-            //$(plugin.el.find(plugin.settings.tpagerClass+" a")).eq(1).click(); // shitty hack for now
             setupPages(1);
         };
     
