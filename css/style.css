@@ -52,3 +52,27 @@ h3 {
 #content {
     padding:10px;
 }
+.tabs { float:left; }
+.tabs ul {
+    margin:0;
+    padding:0;
+    height:18px;
+}
+.tabs ul li {
+    display:inline;
+}
+.tabs ul li a {
+    background-color:#ccc;
+    color:#888;
+    padding:4px;
+    border:1px solid #ccc;
+}
+.tabs ul li a.current {
+    background-color:#fff;
+    color:#333;
+    border-bottom:1px solid #fff;
+}
+.tabs div {
+    padding:4px;
+    border:1px solid #ccc;
+}

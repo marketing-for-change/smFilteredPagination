@@ -8,6 +8,7 @@
     <title>smPlugins - smFilteredPagination</title>
     <link rel="stylesheet" href="css/reset.css" type="text/css" media="all" />
     <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/jquery.smFilteredPagination.css" type="text/css" media="all" />
     <link rel="stylesheet" href="css/highlight.magula.css" type="text/css" media="all" />
 </head>
 <body>
@@ -31,7 +32,6 @@
         <div class="example-wrapper clearfix">
             <h3>Example 1: Default</h3>
             <div id="pagination-1" class="example-pagination">
-                <div class="pagination" id="pagerHeader"></div>
                 <div>
                     <div class="item">Item 1</div>
                     <div class="item">Item 2</div>
@@ -67,12 +67,32 @@
                     <div class="item">Item 32</div>
                 </div>
             </div><!-- #pagination-1 -->
-            <div id="code-1" class="code">
+            <div class="tabs">
+                <ul>
+                    <li><a href="#">Javascript</a></li>
+                    <li><a href="#">HTML</a></li>
+                    <li><a href="#">Description</a></li>
+                </ul>
+                <div id="js-code-1" class="code">
 <pre class="html"><code>$(function(){ // document ready
-    // Minimal Setup
     pagination1 = new $.smFilteredPagination($("#pagination-1"));
 });</code></pre>
-            </div><!-- #code-1 -->
+                </div><!-- #js-code-1 -->
+                <div id="html-code-1" class="code">
+<pre class="html"><code>&lt;div id="pagination-1" class="example-pagination"&gt;
+    &lt;div class="item"&gt;Item 1&lt;/div&gt;
+    &lt;div class="item"&gt;Item 2&lt;/div&gt;
+    &lt;div class="item"&gt;Item 3&lt;/div&gt;
+    ...
+    &lt;div class="item"&gt;Item 30&lt;/div&gt;
+    &lt;div class="item"&gt;Item 31&lt;/div&gt;
+    &lt;div class="item"&gt;Item 32&lt;/div&gt;
+&lt;div&gt;</code></pre>
+                </div><!-- #html-code-1 -->
+                <div id="description-1">
+                    <p>This is the minimal example of pagination which uses the default options specified at the bottom of this document.</p>
+                </div>
+            </div><!-- .tabs -->
         </div><!-- .example-wrapper -->
         <div class="example-wrapper clearfix">
             <h3>Example 2: # Per Page and live modification</h3>
@@ -117,7 +137,13 @@
                     <div class="item">Item 32</div>
                 </div>
             </div><!-- #pagination-2 -->
-            <div id="code-2" class="code">
+            <div class="tabs">
+                <ul>
+                    <li><a href="#">Javascript</a></li>
+                    <li><a href="#">HTML</a></li>
+                    <li><a href="#">Description</a></li>
+                </ul>
+                <div id="js-code-2" class="code">
 <pre class="html"><code>$(function(){ // document ready
     pagination2 = new $.smFilteredPagination($("#pagination-2"), {
         pagerHeader: "pagerHeader2",
@@ -137,7 +163,22 @@
         pagination2.rebuild();
     });
 });</code></pre>
-            </div><!-- #code-2 -->
+                </div><!-- #js-code-2 -->
+                <div id="html-code-2" class="code">
+<pre class="html"><code>&lt;div id="pagination-2" class="example-pagination"&gt;
+    &lt;div class="item"&gt;Item 1&lt;/div&gt;
+    &lt;div class="item"&gt;Item 2&lt;/div&gt;
+    &lt;div class="item"&gt;Item 3&lt;/div&gt;
+    ...
+    &lt;div class="item"&gt;Item 30&lt;/div&gt;
+    &lt;div class="item"&gt;Item 31&lt;/div&gt;
+    &lt;div class="item"&gt;Item 32&lt;/div&gt;
+&lt;div&gt;</code></pre>
+                </div><!-- #html-code-2 -->
+                <div id="description-1">
+                    <p>This example shows how to use public methods with useful scenarios, such as updating the page count and adding/removing filters.  Try increasing the count to 6 or 10 and them "filter even rows".  Remove the filter and change to 40 to see pagination hide itself if the pageCount = 1.</p>
+                </div>
+            </div><!-- .tabs -->
         </div><!-- .example-wrapper -->
         <div class="example-wrapper clearfix">
             <h3>Example 3: Some configured options</h3>
@@ -177,7 +218,13 @@
                     <div class="item">Item 32</div>
                 </div>
             </div><!-- #pagination-3 -->
-            <div id="code-3" class="code">
+            <div class="tabs">
+                <ul>
+                    <li><a href="#">Javascript</a></li>
+                    <li><a href="#">HTML</a></li>
+                    <li><a href="#">Description</a></li>
+                </ul>
+                <div id="js-code-3" class="code">
 <pre class="html"><code>$(function(){ // document ready
     pagination3 = new $.smFilteredPagination($("#pagination-3"), {
         pagerHeader: "pagerHeader3",
@@ -189,7 +236,22 @@
         scrollToTopOnChange: true
     });
 });</code></pre>
-            </div><!-- #code-3 -->
+                </div><!-- #js-code-3 -->
+                <div id="html-code-3" class="code">
+<pre class="html"><code>&lt;div id="pagination-3" class="example-pagination"&gt;
+    &lt;div class="item"&gt;Item 1&lt;/div&gt;
+    &lt;div class="item"&gt;Item 2&lt;/div&gt;
+    &lt;div class="item"&gt;Item 3&lt;/div&gt;
+    ...
+    &lt;div class="item"&gt;Item 30&lt;/div&gt;
+    &lt;div class="item"&gt;Item 31&lt;/div&gt;
+    &lt;div class="item"&gt;Item 32&lt;/div&gt;
+&lt;div&gt;</code></pre>
+                </div><!-- #html-code-3 -->
+                <div id="description-3">
+                    <p>This example utilizes some of the options to change how pagination appears and behaves.</p>
+                </div>
+            </div><!-- .tabs -->
         </div><!-- .example-wrapper -->
         <h2>Options</h2>
         <p>The following plugin options are configurable, they are shown below with their defaults.</p>
@@ -240,14 +302,8 @@
         <p>If you have a question, concern, request or otherwise need to contact me, you may email <a href="mailto:&#116;&#121;&#108;&#101;&#114;&#046;&#109;&#117;&#108;&#108;&#105;&#103;&#097;&#110;&#064;&#115;&#097;&#108;&#116;&#101;&#114;&#109;&#105;&#116;&#099;&#104;&#101;&#108;&#108;&#046;&#099;&#111;&#109;">&#116;&#121;&#108;&#101;&#114;&#046;&#109;&#117;&#108;&#108;&#105;&#103;&#097;&#110;&#064;&#115;&#097;&#108;&#116;&#101;&#114;&#109;&#105;&#116;&#099;&#104;&#101;&#108;&#108;&#046;&#099;&#111;&#109;</a>.  Thats: Tyler [dot] Mulligan [at] Salter Mitchell (dot) com.</p>
     </div><!-- #content -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-    <script src="js/highlight.pack.js"></script>
-    <script>
-        hljs.tabReplace = '    ';
-        hljs.initHighlightingOnLoad();
-    </script>
     <!-- smFilteredPagination -->
     <script src="js/jquery.smFilteredPagination.js"></script>
-    <link rel="stylesheet" href="css/jquery.smFilteredPagination.css" type="text/css" media="all" />
     <script type="text/javascript">
     $(function(){ // document ready
         pagination1 = new $.smFilteredPagination($("#pagination-1")); // Minimal
@@ -280,19 +336,44 @@
             pagination2.rebuild();
             return false; // prevent default
         });
+
+        // Demo Settings
+        
+        // tabs
+        $.fn.smTabs = function(){ 
+            var tabs = $(this).children("div");
+            var tablinks = $(this).children("ul").find("li a");
+            tabs.hide();
+            tabs.eq(0).show();
+            tablinks.eq(0).addClass("current");
+            tablinks.click(function() {
+                tablinks.removeClass("current");
+                $(this).addClass("current");
+                tabs.hide().eq(tablinks.index(this)).show();
+                return false;
+            });
+        }; // smTabs
+
+        $(".tabs").each(function() { $(this).smTabs(); });
     });
     </script>
     <style type="text/css">
     div.item { padding:2px; }
     div.item:nth-child(even) { background-color:#fff; }
     div.item:nth-child(odd) { background-color:#eee; }
-    .example-wrapper { border:2px solid #eee; margin:10px 0; padding:10px; width:970px; }
+    .example-wrapper { border:2px solid #eee; margin:10px 0; padding:5px; width:970px; }
     .example-pagination { clear:left; float:left; width:460px; padding:5px; }
+    .tabs { float:left; width:490px; margin-left:10px; }
     .controls { float:left; }
-    .code { float:left; width:480px; margin-left:10px; }
+    .code { float:left; width:480px; }
     #pagination-1 { background-color:#efc; }
     #pagination-2 { background-color:#edf; }
     #pagination-3 { background-color:#dfe; }
     </style>
+    <script src="js/highlight.pack.js"></script>
+    <script>
+        hljs.tabReplace = '    ';
+        hljs.initHighlightingOnLoad();
+    </script>
 </body>
 </html>
