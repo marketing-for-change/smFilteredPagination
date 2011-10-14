@@ -39,7 +39,7 @@
             hiddenClass: "hide",                // name of hidden class
             filteredClassList: ".filtered",     // comma separated list of filtered classes
             handleLocationHash: true,           // handle page numbers with the location hash, page.php#5
-            scrollToTopOnChange: true,          // Scroll to the top of the page on change.
+            scrollToTopOnChange: false,          // Scroll to the top of the page on change.
             insertPagerHeader: function(el) {   // insertPageHeader function
                 var pagerContents = '<div id="' + this.pagerHeader + '" class="' + this.pagerClass + '"></div>';
                 if ($("#"+this.pagerHeader).length) { $("#"+this.pagerHeader).html(pagerContents); }
