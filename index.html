@@ -10,124 +10,136 @@
     <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
 </head>
 <body>
-    <h1>smFilteredPagination</h1>
-    <h2>Work in progress, read the page source for more information</h2>
-    <h3>Example 1: Default</h3>
-    <div id="pagination-1">
-        <div class="pagination" id="pagerHeader"></div>
-        <div>
-            <div class="item">Item 1</div>
-            <div class="item">Item 2</div>
-            <div class="item">Item 3</div>
-            <div class="item">Item 4</div>
-            <div class="item">Item 5</div>
-            <div class="item">Item 6</div>
-            <div class="item">Item 7</div>
-            <div class="item">Item 8</div>
-            <div class="item">Item 9</div>
-            <div class="item">Item 10</div>
-            <div class="item">Item 11</div>
-            <div class="item">Item 12</div>
-            <div class="item">Item 13</div>
-            <div class="item">Item 14</div>
-            <div class="item">Item 15</div>
-            <div class="item">Item 16</div>
-            <div class="item">Item 17</div>
-            <div class="item">Item 18</div>
-            <div class="item">Item 19</div>
-            <div class="item">Item 20</div>
-            <div class="item">Item 21</div>
-            <div class="item">Item 22</div>
-            <div class="item">Item 23</div>
-            <div class="item">Item 24</div>
-            <div class="item">Item 25</div>
-            <div class="item">Item 26</div>
-            <div class="item">Item 27</div>
-            <div class="item">Item 29</div>
-            <div class="item">Item 29</div>
-            <div class="item">Item 30</div>
-            <div class="item">Item 31</div>
-            <div class="item">Item 32</div>
-        </div>
+    <div id="header">
+        <a href="http://www.saltermitchell.com" target="_blank"><img src="images/sm-logo.png" alt="SalterMitchell" title="SalterMitchell - Behavior Change and Communication" /></a>
+        <h1>smFilteredPagination</h1>
     </div>
-    <h3>Example 2: # Per Page and live modification</h3>
-    <a href="#" id="p2-filter-even">filter even</a>
-    <a href="#" id="p2-remove-filters">remove filters</a>
-    <select id="p2-per-page"><option>2</option><option>4</option><option>6</option><option>10</option><option>20</option><option>40</option></select>
-    <div id="pagination-2">
-        <div>
-            <div class="item">Item 1</div>
-            <div class="item">Item 2</div>
-            <div class="item">Item 3</div>
-            <div class="item">Item 4</div>
-            <div class="item">Item 5</div>
-            <div class="item">Item 6</div>
-            <div class="item">Item 7</div>
-            <div class="item">Item 8</div>
-            <div class="item">Item 9</div>
-            <div class="item">Item 10</div>
-            <div class="item">Item 11</div>
-            <div class="item">Item 12</div>
-            <div class="item">Item 13</div>
-            <div class="item">Item 14</div>
-            <div class="item">Item 15</div>
-            <div class="item">Item 16</div>
-            <div class="item">Item 17</div>
-            <div class="item">Item 18</div>
-            <div class="item">Item 19</div>
-            <div class="item">Item 20</div>
-            <div class="item">Item 21</div>
-            <div class="item">Item 22</div>
-            <div class="item">Item 23</div>
-            <div class="item">Item 24</div>
-            <div class="item">Item 25</div>
-            <div class="item">Item 26</div>
-            <div class="item">Item 27</div>
-            <div class="item">Item 29</div>
-            <div class="item">Item 29</div>
-            <div class="item">Item 30</div>
-            <div class="item">Item 31</div>
-            <div class="item">Item 32</div>
-        </div>
-    </div>
-    <h3>Example 3: Some configured options</h3>
-    <div id="pagination-3">
-        <div>
-            <div class="item">Item 1</div>
-            <div class="item">Item 2</div>
-            <div class="item">Item 3</div>
-            <div class="item">Item 4</div>
-            <div class="item">Item 5</div>
-            <div class="item">Item 6</div>
-            <div class="item">Item 7</div>
-            <div class="item">Item 8</div>
-            <div class="item">Item 9</div>
-            <div class="item">Item 10</div>
-            <div class="item">Item 11</div>
-            <div class="item">Item 12</div>
-            <div class="item">Item 13</div>
-            <div class="item">Item 14</div>
-            <div class="item">Item 15</div>
-            <div class="item">Item 16</div>
-            <div class="item">Item 17</div>
-            <div class="item">Item 18</div>
-            <div class="item">Item 19</div>
-            <div class="item">Item 20</div>
-            <div class="item">Item 21</div>
-            <div class="item">Item 22</div>
-            <div class="item">Item 23</div>
-            <div class="item">Item 24</div>
-            <div class="item">Item 25</div>
-            <div class="item">Item 26</div>
-            <div class="item">Item 27</div>
-            <div class="item">Item 29</div>
-            <div class="item">Item 29</div>
-            <div class="item">Item 30</div>
-            <div class="item">Item 31</div>
-            <div class="item">Item 32</div>
-        </div>
-    </div>
+    <div id="content">
+        <h2>Work in progress, read the page source for more information</h2>
+        <div class="example-wrapper">
+            <h3>Example 1: Default</h3>
+            <div id="pagination-1">
+                <div class="pagination" id="pagerHeader"></div>
+                <div>
+                    <div class="item">Item 1</div>
+                    <div class="item">Item 2</div>
+                    <div class="item">Item 3</div>
+                    <div class="item">Item 4</div>
+                    <div class="item">Item 5</div>
+                    <div class="item">Item 6</div>
+                    <div class="item">Item 7</div>
+                    <div class="item">Item 8</div>
+                    <div class="item">Item 9</div>
+                    <div class="item">Item 10</div>
+                    <div class="item">Item 11</div>
+                    <div class="item">Item 12</div>
+                    <div class="item">Item 13</div>
+                    <div class="item">Item 14</div>
+                    <div class="item">Item 15</div>
+                    <div class="item">Item 16</div>
+                    <div class="item">Item 17</div>
+                    <div class="item">Item 18</div>
+                    <div class="item">Item 19</div>
+                    <div class="item">Item 20</div>
+                    <div class="item">Item 21</div>
+                    <div class="item">Item 22</div>
+                    <div class="item">Item 23</div>
+                    <div class="item">Item 24</div>
+                    <div class="item">Item 25</div>
+                    <div class="item">Item 26</div>
+                    <div class="item">Item 27</div>
+                    <div class="item">Item 29</div>
+                    <div class="item">Item 29</div>
+                    <div class="item">Item 30</div>
+                    <div class="item">Item 31</div>
+                    <div class="item">Item 32</div>
+                </div>
+            </div>
+        </div><!-- .example-wrapper -->
+        <div class="example-wrapper">
+            <h3>Example 2: # Per Page and live modification</h3>
+            <a href="#" id="p2-filter-even">filter even</a>
+            <a href="#" id="p2-remove-filters">remove filters</a>
+            <select id="p2-per-page"><option>2</option><option>4</option><option>6</option><option>10</option><option>20</option><option>40</option></select>
+            <div id="pagination-2">
+                <div>
+                    <div class="item">Item 1</div>
+                    <div class="item">Item 2</div>
+                    <div class="item">Item 3</div>
+                    <div class="item">Item 4</div>
+                    <div class="item">Item 5</div>
+                    <div class="item">Item 6</div>
+                    <div class="item">Item 7</div>
+                    <div class="item">Item 8</div>
+                    <div class="item">Item 9</div>
+                    <div class="item">Item 10</div>
+                    <div class="item">Item 11</div>
+                    <div class="item">Item 12</div>
+                    <div class="item">Item 13</div>
+                    <div class="item">Item 14</div>
+                    <div class="item">Item 15</div>
+                    <div class="item">Item 16</div>
+                    <div class="item">Item 17</div>
+                    <div class="item">Item 18</div>
+                    <div class="item">Item 19</div>
+                    <div class="item">Item 20</div>
+                    <div class="item">Item 21</div>
+                    <div class="item">Item 22</div>
+                    <div class="item">Item 23</div>
+                    <div class="item">Item 24</div>
+                    <div class="item">Item 25</div>
+                    <div class="item">Item 26</div>
+                    <div class="item">Item 27</div>
+                    <div class="item">Item 29</div>
+                    <div class="item">Item 29</div>
+                    <div class="item">Item 30</div>
+                    <div class="item">Item 31</div>
+                    <div class="item">Item 32</div>
+                </div>
+            </div>
+        </div><!-- .example-wrapper -->
+        <div class="example-wrapper">
+            <h3>Example 3: Some configured options</h3>
+            <div id="pagination-3">
+                <div>
+                    <div class="item">Item 1</div>
+                    <div class="item">Item 2</div>
+                    <div class="item">Item 3</div>
+                    <div class="item">Item 4</div>
+                    <div class="item">Item 5</div>
+                    <div class="item">Item 6</div>
+                    <div class="item">Item 7</div>
+                    <div class="item">Item 8</div>
+                    <div class="item">Item 9</div>
+                    <div class="item">Item 10</div>
+                    <div class="item">Item 11</div>
+                    <div class="item">Item 12</div>
+                    <div class="item">Item 13</div>
+                    <div class="item">Item 14</div>
+                    <div class="item">Item 15</div>
+                    <div class="item">Item 16</div>
+                    <div class="item">Item 17</div>
+                    <div class="item">Item 18</div>
+                    <div class="item">Item 19</div>
+                    <div class="item">Item 20</div>
+                    <div class="item">Item 21</div>
+                    <div class="item">Item 22</div>
+                    <div class="item">Item 23</div>
+                    <div class="item">Item 24</div>
+                    <div class="item">Item 25</div>
+                    <div class="item">Item 26</div>
+                    <div class="item">Item 27</div>
+                    <div class="item">Item 29</div>
+                    <div class="item">Item 29</div>
+                    <div class="item">Item 30</div>
+                    <div class="item">Item 31</div>
+                    <div class="item">Item 32</div>
+                </div>
+            </div>
+        </div><!-- .example-wrapper -->
+    </div><!-- #content -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <!-- smFilteredPagination -->
     <script src="js/jquery.smFilteredPagination.js"></script>
     <link rel="stylesheet" href="css/jquery.smFilteredPagination.css" type="text/css" media="all" />
     <script type="text/javascript">
@@ -163,9 +175,13 @@
     });
     </script>
     <style type="text/css">
+    div.item { padding:2px; }
+    div.item:nth-child(even) { background-color:#fff; }
+    div.item:nth-child(odd) { background-color:#eee; }
+    .example-wrapper { border:2px solid #eee; margin:10px 0; padding:10px; width:500px; }
     #pagination-1 { width:300px; background-color:#efc; padding:5px; }
-    #pagination-2 { width:440px; background-color:#edf; padding:5px; }
-    #pagination-3 { width:440px; background-color:#dfe; padding:5px; }
+    #pagination-2 { width:460px; background-color:#edf; padding:5px; }
+    #pagination-3 { width:460px; background-color:#dfe; padding:5px; }
     </style>
 </body>
 </html>
