@@ -15,31 +15,31 @@ pagination has been initialized.
 Typically the reason for this was caused by the way pages were defined,
 wrapping predetermined chunks in divs to create pages:
 
-<div class="page">
-    <div class="item"></div>
-    <div class="item"></div>
-</div>
-<div class="page hide">
-    <div class="item"></div>
-    <div class="item"></div>
-</div>
-<div class="page hide">
-    <div class="item"></div>
-    <div class="item"></div>
-</div>
+    <div class="page">
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <div class="page hide">
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <div class="page hide">
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
 
 
 What makes smFilteredPagination a better alternative is in the way it
 handles pages:
 
-<div class="results">
-    <div class="item"></div>
-    <div class="item"></div>
-    <div class="item hide"></div>
-    <div class="item hide filtered"></div>
-    <div class="item hide"></div>
-    <div class="item hide"></div>
-</div>
+    <div class="results">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item hide"></div>
+        <div class="item hide filtered"></div>
+        <div class="item hide"></div>
+        <div class="item hide"></div>
+    </div>
 
 
 The hidden class is used to hide any items outside the currently viewed
