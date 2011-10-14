@@ -12,6 +12,7 @@ input {
 	padding:2px;
 	border:1px solid #ccc;
 }
+p { margin:4px 0; }
 pre { margin:0; }
 a { text-decoration:none; }
 a, a:visited { color:#4DBE31; }
@@ -22,11 +23,11 @@ h1,h2,h3,h4,h5,h6 {
 }
 h2 {
     font-size:20px;
-    margin:0;
+    margin:10px 0 4px;
     padding:0;
 }
 h3 {
-    margin:4px 0;
+    margin:7px 0 2px;
     padding:0;
 }
 #header {
