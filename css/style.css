@@ -12,13 +12,22 @@ input {
 	padding:2px;
 	border:1px solid #ccc;
 }
+pre { margin:0; }
 a { text-decoration:none; }
 a, a:visited { color:#4DBE31; }
 a:hover { color:#FCCC68; }
 a:active, a:focus { outline:0; }
 h1,h2,h3,h4,h5,h6 {
-	font-weight:400;
 	font-family: verdana, sans-serif;
+}
+h2 {
+    font-size:20px;
+    margin:0;
+    padding:0;
+}
+h3 {
+    margin:4px 0;
+    padding:0;
 }
 #header {
     background-color:#4B555F;

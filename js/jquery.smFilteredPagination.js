@@ -40,12 +40,12 @@
             filteredClassList: ".filtered",     // comma separated list of filtered classes
             handleLocationHash: true,           // handle page numbers with the location hash, page.php#5
             scrollToTopOnChange: false,         // Scroll to the top of the page on change.
-            insertPagerHeader: function(el) {   // insertPageHeader function
+            insertPagerHeader: function(el) {   // insertPagerHeader function, automatically inserts pagerHeader if not found and show is true
                 var pagerContents = '<div id="' + this.pagerHeader + '" class="' + this.pagerClass + '"></div>';
                 if ($("#"+this.pagerHeader).length) { $("#"+this.pagerHeader).html(pagerContents); }
                 else { $(el).prepend(pagerContents); }
             },
-            insertPagerFooter: function(el) {   // insertPageFooter function
+            insertPagerFooter: function(el) {   // insertPagerFooter function, automatically inserts pagerFooter if not found and show is true
                 var pagerContents = '<div id="' + this.pagerFooter + '" class="' + this.pagerClass + '"></div>';
                 if ($("#"+this.pagerFooter).length) { $("#"+this.pagerFooter).html(pagerContents); }
                 else { $(el).append(pagerContents); }
