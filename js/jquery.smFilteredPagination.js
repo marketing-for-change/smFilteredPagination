@@ -17,6 +17,7 @@
 
         var defaults = {
             pagerItems: "div.item",             // item class
+            pagerItemsWrapper: "div.results",   // item wrapping class or id
             pagerClass: "pagination",           // pager class
             pagerHeader: "pagerHeader",         // header pager id
             pagerFooter: "pagerFooter",         // footer pager id
@@ -71,14 +72,14 @@
 
             plugin.rebuild();
     
-            $(plugin.el.find(plugin.settings.tpagerClass+" li a")).live("click",function(e) {
+            plugin.el.find(plugin.settings.tpagerClass+" li a").live("click",function(e) {
                 e.preventDefault();
                 var currentPage = (plugin.el.find(plugin.settings.tpagerClass+" li a.current").length) ? plugin.el.find(plugin.settings.tpagerClass+" li a.current").attr("href").split("#")[1].replace("#","") : 1;
 
                 var clickedPage = $(this).attr("href").split("#")[1].replace("#","");
-                var pageCount = Math.ceil($(plugin.settings.pagerItems,plugin.el).not(plugin.settings.filteredClassList).length/plugin.settings.itemsPerPage);
+                var pageCount = Math.ceil(plugin.el.children(plugin.settings.pagerItemsWrapper).children(plugin.settings.pagerItems).not(plugin.settings.filteredClassList).length/plugin.settings.itemsPerPage);
     
-                $(plugin.el.find(plugin.settings.tpagerClass+" li a")).removeClass("current");
+                plugin.el.find(plugin.settings.tpagerClass+" li a").removeClass("current");
 
                 if (isNumber.test(clickedPage)) {
                     var selectedPage = clickedPage;
@@ -189,9 +190,18 @@
             plugin.settings.itemsPerPage = parseInt(n);
             plugin.rebuild();
         };
+
+        plugin.addItems = function(page) {
+            $.post(page, function(data) {
+                plugin.el.children(plugin.settings.pagerItemsWrapper).append(data);
+                //console.log(plugin.settings.itemsPerPage);
+                plugin.rebuild();
+            });
+        };
         
         plugin.rebuild = function() {
-            var pageCount = Math.ceil($(plugin.settings.pagerItems,plugin.el).not(plugin.settings.filteredClassList).length/plugin.settings.itemsPerPage);
+            var pageCount = Math.ceil(plugin.el.children(plugin.settings.pagerItemsWrapper).children(plugin.settings.pagerItems).not(plugin.settings.filteredClassList).length/plugin.settings.itemsPerPage);
+
             var currentPage = 1;
             if (plugin.settings.showPagerHeader) {
                 plugin.settings.insertPagerHeader(plugin.el);

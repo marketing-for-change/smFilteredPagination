@@ -37,7 +37,7 @@
         <div class="example-wrapper clearfix">
             <h3>Example 1: Default</h3>
             <div id="pagination-1" class="example-pagination">
-                <div>
+                <div class="results">
                     <div class="item">Item 1</div>
                     <div class="item">Item 2</div>
                     <div class="item">Item 3</div>
@@ -102,12 +102,13 @@
         <div class="example-wrapper clearfix">
             <h3>Example 2: # Per Page and live modification</h3>
             <ul class="controls">
-                <li><select id="p2-per-page"><option>2</option><option>4</option><option>6</option><option>10</option><option>20</option><option>40</option></select></li>
+                <li><select id="p2-per-page"><option>4</option><option>6</option><option>10</option><option>20</option><option>40</option></select></li>
                 <li><a href="#" id="p2-filter-even">filter even rows</a></li>
                 <li><a href="#" id="p2-remove-filters">remove filter</a></li>
+                <li><a href="#" id="p2-add">add records</a></li>
             </ul>
             <div id="pagination-2" class="example-pagination">
-                <div>
+                <div class="results">
                     <div class="item">Item 1</div>
                     <div class="item">Item 2</div>
                     <div class="item">Item 3</div>
@@ -153,7 +154,7 @@
     pagination2 = new $.smFilteredPagination($("#pagination-2"), {
         pagerHeader: "pagerHeader2",
         pagerFooter: "pagerFooter2",
-        itemsPerPage: 2
+        itemsPerPage: 4
     });
     // using public methods
     $("#p2-per-page").change(function() {
@@ -166,6 +167,10 @@
     $("#p2-remove-filters").click(function() {
         $("#pagination-2 div.item.filtered").removeClass("filtered");
         pagination2.rebuild();
+    });
+    $("#p2-add").click(function() {
+        pagination2.addItems("file-ajax.html");
+        return false; // prevent default
     });
 });</code></pre>
                 </div><!-- #js-code-2 -->
@@ -188,7 +193,7 @@
         <div class="example-wrapper clearfix">
             <h3>Example 3: Some configured options</h3>
             <div id="pagination-3" class="example-pagination">
-                <div>
+                <div class="results">
                     <div class="item">Item 1</div>
                     <div class="item">Item 2</div>
                     <div class="item">Item 3</div>
@@ -262,6 +267,7 @@
         <p>The following plugin options are configurable, they are shown below with their defaults.</p>
 <pre class="javascript"><code>options = {
     pagerItems: "div.item",             // item class
+    pagerItemsWrapper: "div.results",   // item wrapping class or id
     pagerClass: "pagination",           // pager class
     pagerHeader: "pagerHeader",         // header pager id
     pagerFooter: "pagerFooter",         // footer pager id
@@ -315,7 +321,7 @@
         pagination2 = new $.smFilteredPagination($("#pagination-2"), {
             pagerHeader: "pagerHeader2",
             pagerFooter: "pagerFooter2",
-            itemsPerPage: 2
+            itemsPerPage: 4
         });
         pagination3 = new $.smFilteredPagination($("#pagination-3"), {
             pagerHeader: "pagerHeader3",
@@ -339,6 +345,10 @@
         $("#p2-remove-filters").click(function() {
             $("#pagination-2 div.item.filtered").removeClass("filtered");
             pagination2.rebuild();
+            return false; // prevent default
+        });
+        $("#p2-add").click(function() {
+            pagination2.addItems("file-ajax.html");
             return false; // prevent default
         });
 

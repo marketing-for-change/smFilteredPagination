@@ -68,3 +68,4 @@ http://www.dev4.us/jquery-plugins/smFilteredPagination/
 - Ajax support
 - More public methods
 - Default themes
+- Remove double jQuery references
