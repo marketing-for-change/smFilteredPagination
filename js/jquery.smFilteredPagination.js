@@ -77,7 +77,7 @@
                 var currentPage = (plugin.el.find(plugin.settings.tpagerClass+" li a.current").length) ? plugin.el.find(plugin.settings.tpagerClass+" li a.current").attr("href").split("#")[1].replace("#","") : 1;
 
                 var clickedPage = $(this).attr("href").split("#")[1].replace("#","");
-                var pageCount = Math.ceil(plugin.el.children(plugin.settings.pagerItemsWrapper).children(plugin.settings.pagerItems).not(plugin.settings.filteredClassList).length/plugin.settings.itemsPerPage);
+                var pageCount = Math.ceil(plugin.el.find(plugin.settings.pagerItems,plugin.settings.pagerItemsWrapper).not(plugin.settings.filteredClassList).length/plugin.settings.itemsPerPage);
     
                 plugin.el.find(plugin.settings.tpagerClass+" li a").removeClass("current");
 
@@ -104,7 +104,7 @@
                         var end = ((selectedPage-1)*plugin.settings.itemsPerPage)+plugin.settings.itemsPerPage;
                     }
                 }
-                $(plugin.settings.pagerItems,plugin.el).not(plugin.settings.filteredClassList).addClass(plugin.settings.hiddenClass).slice(start,end).removeClass(plugin.settings.hiddenClass);
+                plugin.el.find(plugin.settings.pagerItems,plugin.settings.pagerItemsWrapper).not(plugin.settings.filteredClassList).addClass(plugin.settings.hiddenClass).slice(start,end).removeClass(plugin.settings.hiddenClass);
                 if (plugin.settings.showPagerHeader) { buildPager(plugin.settings.tpagerHeader,pageCount,selectedPage); }
                 if (plugin.settings.showPagerFooter) { buildPager(plugin.settings.tpagerFooter,pageCount,selectedPage); }
                 if (plugin.settings.scrollToTopOnChange) {
@@ -149,25 +149,25 @@
                     // Generate starting points
                     if (interval[0] > 1 && plugin.settings.itemsInPagerEdge > 0) {
                         var end = Math.min(plugin.settings.itemsInPagerEdge, interval[0]);
-                        for(var i=1; i < end; i++) {
+                        for (var i=1; i < end; i++) {
                            list += '<li><a href="#'+i+'">'+i+'</a></li>';
                         }
-                        if(plugin.settings.itemsInPagerEdge < interval[0] && plugin.settings.itemsInPagerContinued) {
+                        if (plugin.settings.itemsInPagerEdge < interval[0] && plugin.settings.itemsInPagerContinued) {
                            list += "<span>"+plugin.settings.itemsInPagerContinued+"</span>";
                         }
                     }
                     // Generate interval links
-                    for(var i=interval[0]; i <= interval[1]; i++) {
+                    for (var i=interval[0]; i <= interval[1]; i++) {
                         var classify = (i==selectedPage) ? ' class="current"' : '';
                         list += '<li><a href="#'+i+'"'+classify+'>'+i+'</a></li>';
                     }
                     // Generate ending points
                     if (interval[1] < pageCount && plugin.settings.itemsInPagerEdge > 0) {
-                        if(pageCount-plugin.settings.itemsInPagerEdge > interval[1] && plugin.settings.itemsInPagerContinued) {
+                        if (pageCount-plugin.settings.itemsInPagerEdge > interval[1] && plugin.settings.itemsInPagerContinued) {
                            list += "<span>"+plugin.settings.itemsInPagerContinued+"</span>";
                         }
                         var begin = Math.max(pageCount-plugin.settings.itemsInPagerEdge, interval[1])+1;
-                        for(var i=begin; i <= pageCount; i++) {
+                        for (var i=begin; i <= pageCount; i++) {
                            list += '<li><a href="#'+i+'">'+i+'</a></li>';
                         }
                     }
@@ -182,8 +182,8 @@
         
         var setupPages = function(currentPage) {
             var currentPage = typeof(currentPage) != 'undefined' ? currentPage : 1;
-            $(plugin.settings.pagerItems,plugin.el).filter(plugin.settings.filteredClassList).addClass("hide");
-            $(plugin.settings.pagerItems,plugin.el).not(plugin.settings.filteredClassList).addClass(plugin.settings.hiddenClass).slice(currentPage-1,plugin.settings.itemsPerPage).removeClass(plugin.settings.hiddenClass);
+            plugin.el.find(plugin.settings.pagerItems,plugin.settings.pagerItemsWrapper).filter(plugin.settings.filteredClassList).addClass("hide");
+            plugin.el.find(plugin.settings.pagerItems,plugin.settings.pagerItemsWrapper).not(plugin.settings.filteredClassList).addClass(plugin.settings.hiddenClass).slice(currentPage-1,plugin.settings.itemsPerPage).removeClass(plugin.settings.hiddenClass);
         };
 
         plugin.setItemsPerPage = function(n) {
@@ -194,14 +194,12 @@
         plugin.addItems = function(page) {
             $.post(page, function(data) {
                 plugin.el.children(plugin.settings.pagerItemsWrapper).append(data);
-                //console.log(plugin.settings.itemsPerPage);
                 plugin.rebuild();
             });
         };
         
         plugin.rebuild = function() {
-            var pageCount = Math.ceil(plugin.el.children(plugin.settings.pagerItemsWrapper).children(plugin.settings.pagerItems).not(plugin.settings.filteredClassList).length/plugin.settings.itemsPerPage);
-
+            var pageCount = Math.ceil(plugin.el.find(plugin.settings.pagerItems,plugin.settings.pagerItemsWrapper).not(plugin.settings.filteredClassList).length/plugin.settings.itemsPerPage);
             var currentPage = 1;
             if (plugin.settings.showPagerHeader) {
                 plugin.settings.insertPagerHeader(plugin.el);
