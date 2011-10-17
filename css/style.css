@@ -15,8 +15,8 @@ input {
 p { margin:4px 0; }
 pre { margin:0; }
 a { text-decoration:none; }
-a, a:visited { color:#4DBE31; }
-a:hover { color:#FCCC68; }
+a, a:visited { color:#83B817; }
+a:hover { color:#4B555F; }
 a:active, a:focus { outline:0; }
 h1,h2,h3,h4,h5,h6 {
 	font-family: verdana, sans-serif;
@@ -34,24 +34,54 @@ h3 {
     background-color:#4B555F;
     height:109px;
 }
-#header img {
-    float:left;
-    padding:5px 0;
-    border:0;
-}
 #header h1 {
     float:right;
-    margin:0 15px 0 0;
-    padding:0;
-    color:#fff;
+    padding:0 15px 0 0;
+    color:#ccc;
     font-size:30px;
-    height:109px;
-    line-height:109px;
-    vertical-align:center;
+    height:68px;
+    line-height:118px;
+    vertical-align:baseline;
     font-weight:bold;
 }
+#toc {
+    position:fixed;
+    top:0;
+    left:0;
+    width:215px;
+    height:100%;
+    background-color:#eee;
+    font-size:15px;
+}
+#logo {
+    display:block;
+    background-color:#4B555F;
+    height: 99px;
+    padding: 5px 4px 5px 0;
+    width: 211px;
+}
+#logo img {
+    background-color:#4B555F;
+    border:0;
+}
+#toc h3 {
+    font-size:16px;
+    padding:4px;
+    margin:0;
+    color:#555;
+    background-color:#ccc;
+}
+#toc ul {
+    margin:10px 0 0 20px;
+    padding:0;
+}
 #content {
+    float:left;
+    margin-left:215px;
     padding:10px;
+}
+#content h2 {
+    border-bottom: 1px solid #ccc;
 }
 .tabs { float:left; }
 .tabs ul {

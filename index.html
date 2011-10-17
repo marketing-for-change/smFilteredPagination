@@ -13,11 +13,21 @@
 </head>
 <body>
     <div id="header">
-        <a href="http://www.saltermitchell.com" target="_blank"><img src="images/sm-logo.png" alt="SalterMitchell" title="SalterMitchell - Behavior Change and Communication" /></a>
-        <h1>smFilteredPagination</h1>
+        <h1>smFilteredPagination Documentation</h1>
+    </div>
+    <div id="toc">
+        <a id="logo" href="http://www.saltermitchell.com" target="_blank"><img src="images/sm-logo.png" alt="SalterMitchell" title="SalterMitchell - Behavior Change and Communication" /></a>
+        <h3>smFilteredPagination</h3>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#usage">Usage Examples</a></li>
+            <li><a href="#options">Options</a></li>
+            <li><a href="#methods">Public Methods</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </div>
     <div id="content">
-        <h2>About</h2>
+        <h2 id="about">About</h2>
         <h3>Description</h3>
         <p>smFilteredPagination is a jQuery pagination plugin that has been designed to be more flexible than existing plugins.  All the pagination plugins I looked into had issues handling items hat they are filtered after pagination has been initialized.  Please check the <a href="README.md">README</a> for more information.</p>
         <h3>Required Files</h3>
@@ -33,7 +43,7 @@
         <h3>Download</h3>
         <p>All source is available for download at <a href="https://github.com/saltermitchell/smFilteredPagination" target="_blank">github.com/saltermitchell</a>.</p>
         <p>This documentation is a work in progress, please read the page source if you're having trouble.</p>
-        <h2>Usage Examples</h2>
+        <h2 id="usage">Usage Examples</h2>
         <div class="example-wrapper clearfix">
             <h3>Example 1: Default</h3>
             <div id="pagination-1" class="example-pagination">
@@ -263,7 +273,7 @@
                 </div>
             </div><!-- .tabs -->
         </div><!-- .example-wrapper -->
-        <h2>Options</h2>
+        <h2 id="options">Options</h2>
         <p>The following plugin options are configurable, they are shown below with their defaults.</p>
 <pre class="javascript"><code>options = {
     pagerItems: "div.item",             // item class
@@ -303,14 +313,14 @@
     }
 }
 </code></pre>
-        <h2>Public Methods</h2>
+        <h2 id="methods">Public Methods</h2>
         <p>The following public methods are available through the initialized object.</p>
         <ul>
             <li>setItemsPerPage(n) - sets the # of items per page</li>
             <li>addItems(n) - adds more items with ajax</li>
             <li>rebuild() - rebuilds the pagination</li>
         </ul>
-        <h2>Contact</h2>
+        <h2 id="contact">Contact</h2>
         <p>If you have a question, concern, request or otherwise need to contact me, you may email <a href="mailto:&#116;&#121;&#108;&#101;&#114;&#046;&#109;&#117;&#108;&#108;&#105;&#103;&#097;&#110;&#064;&#115;&#097;&#108;&#116;&#101;&#114;&#109;&#105;&#116;&#099;&#104;&#101;&#108;&#108;&#046;&#099;&#111;&#109;">&#116;&#121;&#108;&#101;&#114;&#046;&#109;&#117;&#108;&#108;&#105;&#103;&#097;&#110;&#064;&#115;&#097;&#108;&#116;&#101;&#114;&#109;&#105;&#116;&#099;&#104;&#101;&#108;&#108;&#046;&#099;&#111;&#109;</a>.  Thats: Tyler [dot] Mulligan [at] Salter Mitchell (dot) com.</p>
     </div><!-- #content -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>

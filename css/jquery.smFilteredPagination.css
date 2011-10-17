@@ -32,8 +32,8 @@
 	color: #111;
 }
 .pagination a:hover {
-    color:#333;
-    background-color:#eee;
+    color:#fff;
+    background-color:#4B555F;
 }
 .pagination a, .pagination span {
     display: inline-block;
