@@ -20,7 +20,13 @@
         <h3>smFilteredPagination</h3>
         <ul>
             <li><a href="#about">About</a></li>
-            <li><a href="#usage">Usage Examples</a></li>
+            <li><a href="#usage">Usage Examples</a>
+                <ul>
+                    <li><a href="#example-1">Example 1</a></li>
+                    <li><a href="#example-2">Example 2</a></li>
+                    <li><a href="#example-3">Example 3</a></li>
+                </ul>
+            </li>
             <li><a href="#options">Options</a></li>
             <li><a href="#methods">Public Methods</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -45,7 +51,33 @@
         <p>This documentation is a work in progress, please read the page source if you're having trouble.</p>
         <h2 id="usage">Usage Examples</h2>
         <div class="example-wrapper clearfix">
-            <h3>Example 1: Default</h3>
+            <h3 id="example-1">Example 1: Default</h3>
+            <div class="tabs">
+                <ul>
+                    <li><a href="#">Javascript</a></li>
+                    <li><a href="#">HTML</a></li>
+                    <li><a href="#">Description</a></li>
+                </ul>
+                <div id="js-code-1" class="code">
+<pre class="html"><code>$(function(){ // document ready
+    pagination1 = new $.smFilteredPagination($("#pagination-1"));
+});</code></pre>
+                </div><!-- #js-code-1 -->
+                <div id="html-code-1" class="code">
+<pre class="html"><code>&lt;div id="pagination-1" class="example-pagination"&gt;
+    &lt;div class="item"&gt;Item 1&lt;/div&gt;
+    &lt;div class="item"&gt;Item 2&lt;/div&gt;
+    &lt;div class="item"&gt;Item 3&lt;/div&gt;
+    ...
+    &lt;div class="item"&gt;Item 30&lt;/div&gt;
+    &lt;div class="item"&gt;Item 31&lt;/div&gt;
+    &lt;div class="item"&gt;Item 32&lt;/div&gt;
+&lt;div&gt;</code></pre>
+                </div><!-- #html-code-1 -->
+                <div id="description-1">
+                    <p>This is the minimal example of pagination which uses the default options specified at the bottom of this document.</p>
+                </div>
+            </div><!-- .tabs -->
             <div id="pagination-1" class="example-pagination">
                 <div class="results">
                     <div class="item">Item 1</div>
@@ -82,77 +114,9 @@
                     <div class="item">Item 32</div>
                 </div>
             </div><!-- #pagination-1 -->
-            <div class="tabs">
-                <ul>
-                    <li><a href="#">Javascript</a></li>
-                    <li><a href="#">HTML</a></li>
-                    <li><a href="#">Description</a></li>
-                </ul>
-                <div id="js-code-1" class="code">
-<pre class="html"><code>$(function(){ // document ready
-    pagination1 = new $.smFilteredPagination($("#pagination-1"));
-});</code></pre>
-                </div><!-- #js-code-1 -->
-                <div id="html-code-1" class="code">
-<pre class="html"><code>&lt;div id="pagination-1" class="example-pagination"&gt;
-    &lt;div class="item"&gt;Item 1&lt;/div&gt;
-    &lt;div class="item"&gt;Item 2&lt;/div&gt;
-    &lt;div class="item"&gt;Item 3&lt;/div&gt;
-    ...
-    &lt;div class="item"&gt;Item 30&lt;/div&gt;
-    &lt;div class="item"&gt;Item 31&lt;/div&gt;
-    &lt;div class="item"&gt;Item 32&lt;/div&gt;
-&lt;div&gt;</code></pre>
-                </div><!-- #html-code-1 -->
-                <div id="description-1">
-                    <p>This is the minimal example of pagination which uses the default options specified at the bottom of this document.</p>
-                </div>
-            </div><!-- .tabs -->
         </div><!-- .example-wrapper -->
         <div class="example-wrapper clearfix">
-            <h3>Example 2: # Per Page and live modification</h3>
-            <ul class="controls">
-                <li><select id="p2-per-page"><option>4</option><option>6</option><option>10</option><option>20</option><option>40</option></select></li>
-                <li><a href="#" id="p2-filter-even">filter even rows</a></li>
-                <li><a href="#" id="p2-remove-filters">remove filter</a></li>
-                <li><a href="#" id="p2-add">add records</a></li>
-            </ul>
-            <div id="pagination-2" class="example-pagination">
-                <div class="results">
-                    <div class="item">Item 1</div>
-                    <div class="item">Item 2</div>
-                    <div class="item">Item 3</div>
-                    <div class="item">Item 4</div>
-                    <div class="item">Item 5</div>
-                    <div class="item">Item 6</div>
-                    <div class="item">Item 7</div>
-                    <div class="item">Item 8</div>
-                    <div class="item">Item 9</div>
-                    <div class="item">Item 10</div>
-                    <div class="item">Item 11</div>
-                    <div class="item">Item 12</div>
-                    <div class="item">Item 13</div>
-                    <div class="item">Item 14</div>
-                    <div class="item">Item 15</div>
-                    <div class="item">Item 16</div>
-                    <div class="item">Item 17</div>
-                    <div class="item">Item 18</div>
-                    <div class="item">Item 19</div>
-                    <div class="item">Item 20</div>
-                    <div class="item">Item 21</div>
-                    <div class="item">Item 22</div>
-                    <div class="item">Item 23</div>
-                    <div class="item">Item 24</div>
-                    <div class="item">Item 25</div>
-                    <div class="item">Item 26</div>
-                    <div class="item">Item 27</div>
-                    <div class="item">Item 29</div>
-                    <div class="item">Item 29</div>
-                    <div class="item">Item 30</div>
-                    <div class="item">Item 31</div>
-                    <div class="item">Item 32</div>
-                </div>
-            </div><!-- #pagination-2 -->
+            <h3 id="example-2">Example 2: # Per Page and live modification</h3>
             <div class="tabs">
                 <ul>
                     <li><a href="#">Javascript</a></li>
@@ -199,9 +163,85 @@
                     <p>This example shows how to use public methods with useful scenarios, such as updating the page count and adding/removing filters.  Try increasing the count to 6 or 10 and them "filter even rows".  Remove the filter and change to 40 to see pagination hide itself if the pageCount = 1.</p>
                 </div>
             </div><!-- .tabs -->
+            <ul class="controls">
+                <li><select id="p2-per-page"><option>4</option><option>6</option><option>10</option><option>20</option><option>40</option></select></li>
+                <li><a href="#" id="p2-filter-even">filter even rows</a></li>
+                <li><a href="#" id="p2-remove-filters">remove filter</a></li>
+                <li><a href="#" id="p2-add">add records</a></li>
+            </ul>
+            <div id="pagination-2" class="example-pagination">
+                <div class="results">
+                    <div class="item">Item 1</div>
+                    <div class="item">Item 2</div>
+                    <div class="item">Item 3</div>
+                    <div class="item">Item 4</div>
+                    <div class="item">Item 5</div>
+                    <div class="item">Item 6</div>
+                    <div class="item">Item 7</div>
+                    <div class="item">Item 8</div>
+                    <div class="item">Item 9</div>
+                    <div class="item">Item 10</div>
+                    <div class="item">Item 11</div>
+                    <div class="item">Item 12</div>
+                    <div class="item">Item 13</div>
+                    <div class="item">Item 14</div>
+                    <div class="item">Item 15</div>
+                    <div class="item">Item 16</div>
+                    <div class="item">Item 17</div>
+                    <div class="item">Item 18</div>
+                    <div class="item">Item 19</div>
+                    <div class="item">Item 20</div>
+                    <div class="item">Item 21</div>
+                    <div class="item">Item 22</div>
+                    <div class="item">Item 23</div>
+                    <div class="item">Item 24</div>
+                    <div class="item">Item 25</div>
+                    <div class="item">Item 26</div>
+                    <div class="item">Item 27</div>
+                    <div class="item">Item 29</div>
+                    <div class="item">Item 29</div>
+                    <div class="item">Item 30</div>
+                    <div class="item">Item 31</div>
+                    <div class="item">Item 32</div>
+                </div>
+            </div><!-- #pagination-2 -->
         </div><!-- .example-wrapper -->
         <div class="example-wrapper clearfix">
-            <h3>Example 3: Some configured options</h3>
+            <h3 id="example-3">Example 3: Some configured options</h3>
+            <div class="tabs">
+                <ul>
+                    <li><a href="#">Javascript</a></li>
+                    <li><a href="#">HTML</a></li>
+                    <li><a href="#">Description</a></li>
+                </ul>
+                <div id="js-code-3" class="code">
+<pre class="html"><code>$(function(){ // document ready
+    pagination3 = new $.smFilteredPagination($("#pagination-3"), {
+        pagerHeader: "pagerHeader3",
+        showPagerFooter: false,
+        textFirst: "<<",
+        textPrev: "<",
+        textNext: ">",
+        textLast: ">>",
+        scrollToTopOnChange: true
+    });
+});</code></pre>
+                </div><!-- #js-code-3 -->
+                <div id="html-code-3" class="code">
+<pre class="html"><code>&lt;div id="pagination-3" class="example-pagination"&gt;
+    &lt;div class="item"&gt;Item 1&lt;/div&gt;
+    &lt;div class="item"&gt;Item 2&lt;/div&gt;
+    &lt;div class="item"&gt;Item 3&lt;/div&gt;
+    ...
+    &lt;div class="item"&gt;Item 30&lt;/div&gt;
+    &lt;div class="item"&gt;Item 31&lt;/div&gt;
+    &lt;div class="item"&gt;Item 32&lt;/div&gt;
+&lt;div&gt;</code></pre>
+                </div><!-- #html-code-3 -->
+                <div id="description-3">
+                    <p>This example utilizes some of the options to change how pagination appears and behaves.</p>
+                </div>
+            </div><!-- .tabs -->
             <div id="pagination-3" class="example-pagination">
                 <div class="results">
                     <div class="item">Item 1</div>
@@ -238,40 +278,6 @@
                     <div class="item">Item 32</div>
                 </div>
             </div><!-- #pagination-3 -->
-            <div class="tabs">
-                <ul>
-                    <li><a href="#">Javascript</a></li>
-                    <li><a href="#">HTML</a></li>
-                    <li><a href="#">Description</a></li>
-                </ul>
-                <div id="js-code-3" class="code">
-<pre class="html"><code>$(function(){ // document ready
-    pagination3 = new $.smFilteredPagination($("#pagination-3"), {
-        pagerHeader: "pagerHeader3",
-        showPagerFooter: false,
-        textFirst: "<<",
-        textPrev: "<",
-        textNext: ">",
-        textLast: ">>",
-        scrollToTopOnChange: true
-    });
-});</code></pre>
-                </div><!-- #js-code-3 -->
-                <div id="html-code-3" class="code">
-<pre class="html"><code>&lt;div id="pagination-3" class="example-pagination"&gt;
-    &lt;div class="item"&gt;Item 1&lt;/div&gt;
-    &lt;div class="item"&gt;Item 2&lt;/div&gt;
-    &lt;div class="item"&gt;Item 3&lt;/div&gt;
-    ...
-    &lt;div class="item"&gt;Item 30&lt;/div&gt;
-    &lt;div class="item"&gt;Item 31&lt;/div&gt;
-    &lt;div class="item"&gt;Item 32&lt;/div&gt;
-&lt;div&gt;</code></pre>
-                </div><!-- #html-code-3 -->
-                <div id="description-3">
-                    <p>This example utilizes some of the options to change how pagination appears and behaves.</p>
-                </div>
-            </div><!-- .tabs -->
         </div><!-- .example-wrapper -->
         <h2 id="options">Options</h2>
         <p>The following plugin options are configurable, they are shown below with their defaults.</p>
@@ -387,9 +393,9 @@
     div.item { padding:2px; }
     div.item:nth-child(even) { background-color:#fff; }
     div.item:nth-child(odd) { background-color:#eee; }
-    .example-wrapper { border:2px solid #eee; margin:10px 0; padding:5px; width:970px; }
-    .example-pagination { clear:left; float:left; width:460px; padding:5px; }
-    .tabs { float:left; width:490px; margin-left:10px; }
+    .example-wrapper { border:2px solid #eee; padding:5px; margin:10px 0; width:970px; }
+    .example-pagination { float:left; width:460px; padding:5px; margin-left:10px; }
+    .tabs { float:left; width:490px; }
     .controls { float:left; }
     .code { float:left; width:480px; }
     #pagination-1 { background-color:#efc; }
