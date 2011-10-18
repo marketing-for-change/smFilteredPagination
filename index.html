@@ -20,6 +20,12 @@
         <h3>smFilteredPagination</h3>
         <ul>
             <li><a href="#about">About</a></li>
+                <ul>
+                    <li><a href="#description">Description</a></li>
+                    <li><a href="#explanation">Explanation</a></li>
+                    <li><a href="#required">Required Files</a></li>
+                    <li><a href="#download">Download</a></li>
+                </ul>
             <li><a href="#usage">Usage Examples</a>
                 <ul>
                     <li><a href="#example-1">Example 1</a></li>
@@ -34,9 +40,49 @@
     </div>
     <div id="content">
         <h2 id="about">About</h2>
-        <h3>Description</h3>
-        <p>smFilteredPagination is a jQuery pagination plugin that has been designed to be more flexible than existing plugins.  All the pagination plugins I looked into had issues handling items hat they are filtered after pagination has been initialized.  Please check the <a href="README.md">README</a> for more information.</p>
-        <h3>Required Files</h3>
+        <h3 id="description">Description</h3>
+        <p>smFilteredPagination is a jQuery pagination plugin that has been designed to be more flexible than existing plugins by using counts instead of
+wrappers to define pages.  This allows for items to be filtered dynamically without changing the number of results per page.</p>
+		<h3 id="explanation">Explanation</h3>
+		<p>Consider the following design patterns.  One that uses wrappers around items to define pages, where results are then filtered.  It can get quite hairy very quickly as the counts per page will be incosistent and confusing to the end-user. What makes smFilteredPagination a better alternative is in the way it handles pages, using calculations based on classes.  The same example without pages is shown on the right.  This is how smFilteredPagination works.</p>
+<pre class="html short"><code>&lt;-- This example would be on page 2, showing 1 item. --&gt;
+&lt;-- not very flexible --&gt;
+&lt;div class="page hide"&gt;
+	&lt;div class="item"&gt;&lt;/div&gt;
+	&lt;div class="item"&gt;&lt;/div&gt;
+	&lt;div class="item"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="page"&gt;
+	&lt;div class="item filtered"&gt;&lt;/div&gt;
+	&lt;div class="item"&gt;&lt;/div&gt;
+	&lt;div class="item filtered"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="page hide"&gt;
+	&lt;div class="item filtered"&gt;&lt;/div&gt;
+	&lt;div class="item"&gt;&lt;/div&gt;
+	&lt;div class="item"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<pre class="html short"><code>&lt;-- This would be on page 2 showing 3 items, 2 from page 3. --&gt;
+&lt;-- much more flexible (how smFilteredPagination works) --&gt;
+&lt;div class="results"&gt;
+	&lt;div class="item hide"&gt;&lt;/div&gt;
+	&lt;div class="item hide"&gt;&lt;/div&gt;
+	&lt;div class="item hide"&gt;&lt;/div&gt;
+	&lt;div class="item filtered hide"&gt;&lt;/div&gt;
+	&lt;div class="item"&gt;&lt;/div&gt;
+	&lt;div class="item filtered hide"&gt;&lt;/div&gt;
+	&lt;div class="item filtered hide"&gt;&lt;/div&gt;
+	&lt;div class="item"&gt;&lt;/div&gt;
+	&lt;div class="item"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+		<p class="clearfix"></p>
+
+		<p>The hidden class is used to hide any items outside the currently viewed "slice".  In addition to the hidden class, you may add a list of classes that can be used as filters to dynamically filter items from the pagination.</p>
+
+		<p class="strong">smFilteredPagination aims to be a simple, highly configurable and flexible javascription pagination solution.</p>
+
+		<p>Please read the source code and check out the demos for more information.</p>
+        <h3 id="required">Required Files</h3>
         <ul>
             <li>jQuery 1.4+</li>
             <li>jquery.smFilteredPagination.js</li>
@@ -46,7 +92,7 @@
         <pre class="html"><code>&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js">&lt;/script&gt;
 &lt;script src="js/jquery.smFilteredPagination.js"&gt;&lt;/script&gt;
 &lt;link rel="stylesheet" href="css/jquery.smFilteredPagination.css" type="text/css" media="all" /&gt;</code></pre>
-        <h3>Download</h3>
+        <h3 id="download">Download</h3>
         <p>All source is available for download at <a href="https://github.com/saltermitchell/smFilteredPagination" target="_blank">github.com/saltermitchell</a>.</p>
         <p>This documentation is a work in progress, please read the page source if you're having trouble.</p>
         <h2 id="usage">Usage Examples</h2>
@@ -128,22 +174,29 @@
     pagination2 = new $.smFilteredPagination($("#pagination-2"), {
         pagerHeader: "pagerHeader2",
         pagerFooter: "pagerFooter2",
-        itemsPerPage: 4
+        itemsPerPage: 20
     });
     // using public methods
     $("#p2-per-page").change(function() {
         pagination2.setItemsPerPage($(this).val());
     });
-    $("#p2-filter-even").click(function() {
-        $("#pagination-2 div.item:odd").addClass("filtered");
-        pagination2.rebuild();
-    });
-    $("#p2-remove-filters").click(function() {
-        $("#pagination-2 div.item.filtered").removeClass("filtered");
-        pagination2.rebuild();
-    });
+	// toggle filtering of even rows
+	$("#p2-filter-even").click(function() {
+		if ($(this).hasClass("off")) {
+			$(this).removeClass("off").addClass("on");
+			$("#pagination-2 div.item:odd").addClass("filtered");
+			$("span",this).text("on");
+		} else {
+			$(this).removeClass("on").addClass("off");
+			$("#pagination-2 div.item.filtered").removeClass("filtered");
+			$("span",this).text("off");
+		}
+		pagination2.rebuild();
+		return false; // prevent default
+	});
     $("#p2-add").click(function() {
-        pagination2.addItems("file-ajax.html");
+		// this can be dynamic, consider "items.php?start="+$("last-id").val()+"&count=10"
+        pagination2.addItems("examples/ajax-items.html");
         return false; // prevent default
     });
 });</code></pre>
@@ -164,10 +217,9 @@
                 </div>
             </div><!-- .tabs -->
             <ul class="controls">
-                <li><select id="p2-per-page"><option>4</option><option>6</option><option>10</option><option>20</option><option>40</option></select></li>
-                <li><a href="#" id="p2-filter-even">filter even rows</a></li>
-                <li><a href="#" id="p2-remove-filters">remove filter</a></li>
-                <li><a href="#" id="p2-add">add records</a></li>
+                <li><label># Per Page:</label> <select id="p2-per-page"><option>4</option><option>6</option><option>10</option><option selected="selected">20</option><option>40</option></select></li>
+                <li><a href="#" id="p2-filter-even" class="off">filter even rows: <span>off</span></a></li>
+                <li class="last"><a href="#" id="p2-add">add items with ajax</a></li>
             </ul>
             <div id="pagination-2" class="example-pagination">
                 <div class="results">
@@ -334,12 +386,15 @@
     <script src="js/jquery.smFilteredPagination.js"></script>
     <script type="text/javascript">
     $(function(){ // document ready
-        pagination1 = new $.smFilteredPagination($("#pagination-1")); // Minimal
+		// Example 1
+        pagination1 = new $.smFilteredPagination($("#pagination-1"));
+        // Example 2
         pagination2 = new $.smFilteredPagination($("#pagination-2"), {
             pagerHeader: "pagerHeader2",
             pagerFooter: "pagerFooter2",
-            itemsPerPage: 4
+            itemsPerPage: 20
         });
+        // Example 3
         pagination3 = new $.smFilteredPagination($("#pagination-3"), {
             pagerHeader: "pagerHeader3",
             showPagerFooter: false,
@@ -354,20 +409,25 @@
         $("#p2-per-page").change(function() {
             pagination2.setItemsPerPage($(this).val());
         });
+        // toggle filtering of even rows
         $("#p2-filter-even").click(function() {
-            $("#pagination-2 div.item:odd").addClass("filtered");
-            pagination2.rebuild();
-            return false; // prevent default
-        });
-        $("#p2-remove-filters").click(function() {
-            $("#pagination-2 div.item.filtered").removeClass("filtered");
+			if ($(this).hasClass("off")) {
+				$(this).removeClass("off").addClass("on");
+				$("#pagination-2 div.item:odd").addClass("filtered");
+				$("span",this).text("on");
+			} else {
+				$(this).removeClass("on").addClass("off");
+				$("#pagination-2 div.item.filtered").removeClass("filtered");
+				$("span",this).text("off");
+			}
             pagination2.rebuild();
             return false; // prevent default
         });
         $("#p2-add").click(function() {
-            pagination2.addItems("file-ajax.html");
+            pagination2.addItems("examples/ajax-items.html");
             return false; // prevent default
         });
+
 
         // Demo Settings
         

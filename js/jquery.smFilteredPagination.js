@@ -1,6 +1,6 @@
 /*
- * smFilteredPagination - jQuery pagination that also compensates
- * for dynamically filtered items
+ * smFilteredPagination - jQuery pagination that also handles
+ * dynamically filtered items
  * version: 0.5
  *
  * Copyright (c) 2011 Tyler Mulligan, SalterMitchell

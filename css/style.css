@@ -1,4 +1,4 @@
-/*general*/
+/* smDocumentation - Tyler Mulligan */
 :focus { outline:none; }
 body {
     background-color:#fff;
@@ -13,10 +13,12 @@ input {
 	border:1px solid #ccc;
 }
 p {
-    margin:4px 0;
-    line-height:20px;
+    margin:12px 0;
+    line-height:18px;
 }
-pre { margin:0; font-size: 12px; }
+p.strong { font-weight:bold; color:#83B817; }
+pre { margin:0; font-size: 12px; max-width:980px; border:1px solid #ccc; }
+pre.short { width:485px; float:left; margin-right:10px; }
 a { text-decoration:none; }
 a, a:visited { color:#83B817; }
 a:hover { color:#4B555F; }
@@ -30,9 +32,10 @@ h2 {
     padding:0;
 }
 h3 {
-    margin:7px 0 2px;
+    margin:15px 0 2px;
     padding:0;
 }
+ul { margin: 0; }
 #header {
     background-color:#4B555F;
     height:109px;
@@ -75,8 +78,9 @@ h3 {
     background-color:#ccc;
 }
 #toc ul {
-    margin:10px 0 0 20px;
+    margin:10px 0 0 30px;
     padding:0;
+    color:#999;
 }
 #toc ul ul {
     margin:0 0 0 10px;
@@ -85,6 +89,7 @@ h3 {
     float:left;
     margin-left:215px;
     padding:15px;
+    border-top:28px solid #ccc;
 }
 #content h2 {
     color:#333;
@@ -121,4 +126,18 @@ h3 {
 .tabs div {
     padding:4px;
     border:1px solid #ccc;
+}
+.off {
+	color:#E12A2A;
+}
+.on {
+	color:#40E12A;
+}
+.controls li {
+	display:inline-block;
+	padding:0 8px 0 4px;
+	border-right:1px solid #ddd;
+}
+.controls li.last {
+	border-right:0;
 }
