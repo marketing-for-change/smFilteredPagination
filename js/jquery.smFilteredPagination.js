@@ -109,7 +109,7 @@
                 if (plugin.settings.showPagerFooter) { buildPager(plugin.settings.tpagerFooter,pageCount,selectedPage); }
                 if (plugin.settings.scrollToTopOnChange) {
                     var pagingPosition = plugin.el.position();
-                    $("html").scrollTop(pagingPosition.top);
+                    $("body,html,document").scrollTop(pagingPosition.top);
                 }
                 location.hash = selectedPage;
             }); /* end click action */
