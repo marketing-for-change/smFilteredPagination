@@ -45,8 +45,7 @@
 wrappers to define pages.  This allows for items to be filtered dynamically without changing the number of results per page.</p>
 		<h3 id="explanation">Explanation</h3>
 		<p>Consider the following design patterns.  One that uses wrappers around items to define pages, where results are then filtered.  It can get quite hairy very quickly as the counts per page will be incosistent and confusing to the end-user. What makes smFilteredPagination a better alternative is in the way it handles pages, using calculations based on classes.  The same example without pages is shown on the right.  This is how smFilteredPagination works.</p>
-<pre class="html short"><code>&lt;-- This example would be on page 2, showing 1 item. --&gt;
-&lt;-- not very flexible --&gt;
+<pre class="html short"><code>&lt;!-- This example would be showing page 2, displaying 1 item. --&gt;
 &lt;div class="page hide"&gt;
 	&lt;div class="item"&gt;&lt;/div&gt;
 	&lt;div class="item"&gt;&lt;/div&gt;
@@ -61,9 +60,9 @@ wrappers to define pages.  This allows for items to be filtered dynamically with
 	&lt;div class="item filtered"&gt;&lt;/div&gt;
 	&lt;div class="item"&gt;&lt;/div&gt;
 	&lt;div class="item"&gt;&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-<pre class="html short"><code>&lt;-- This would be on page 2 showing 3 items, 2 from page 3. --&gt;
-&lt;-- much more flexible (how smFilteredPagination works) --&gt;
+&lt;/div&gt;
+&lt;!-- not very flexible --&gt;</code></pre>
+<pre class="html short"><code>&lt;!-- Showing page 2, displaying 3 items, 2 came from "page 3". --&gt;
 &lt;div class="results"&gt;
 	&lt;div class="item hide"&gt;&lt;/div&gt;
 	&lt;div class="item hide"&gt;&lt;/div&gt;
@@ -74,7 +73,8 @@ wrappers to define pages.  This allows for items to be filtered dynamically with
 	&lt;div class="item filtered hide"&gt;&lt;/div&gt;
 	&lt;div class="item"&gt;&lt;/div&gt;
 	&lt;div class="item"&gt;&lt;/div&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+&lt;!-- much more flexible (how smFilteredPagination works) --&gt;</code></pre>
 		<p class="clearfix"></p>
 
 		<p>The hidden class is used to hide any items outside the currently viewed "slice".  In addition to the hidden class, you may add a list of classes that can be used as filters to dynamically filter items from the pagination.</p>
@@ -162,7 +162,7 @@ wrappers to define pages.  This allows for items to be filtered dynamically with
             </div><!-- #pagination-1 -->
         </div><!-- .example-wrapper -->
         <div class="example-wrapper clearfix">
-            <h3 id="example-2">Example 2: # Per Page and live modification</h3>
+            <h3 id="example-2">Example 2: # Per Page and Live Modification to Items</h3>
             <div class="tabs">
                 <ul>
                     <li><a href="#">Javascript</a></li>
@@ -259,7 +259,7 @@ wrappers to define pages.  This allows for items to be filtered dynamically with
             </div><!-- #pagination-2 -->
         </div><!-- .example-wrapper -->
         <div class="example-wrapper clearfix">
-            <h3 id="example-3">Example 3: Some configured options</h3>
+            <h3 id="example-3">Example 3: New Pager Names and scrollToTopOnChange</h3>
             <div class="tabs">
                 <ul>
                     <li><a href="#">Javascript</a></li>
@@ -269,13 +269,16 @@ wrappers to define pages.  This allows for items to be filtered dynamically with
                 <div id="js-code-3" class="code">
 <pre class="html"><code>$(function(){ // document ready
     pagination3 = new $.smFilteredPagination($("#pagination-3"), {
-        pagerHeader: "pagerHeader3",
-        showPagerFooter: false,
-        textFirst: "<<",
-        textPrev: "<",
-        textNext: ">",
-        textLast: ">>",
-        scrollToTopOnChange: true
+		pagerItems: ".pic",
+		showPagerHeader: false,
+		showPagerFooter: true,
+		pagerFooter: "pagerFooter3",
+		textFirst: "<<",
+		textPrev: "<",
+		textNext: ">",
+		textLast: ">>",
+		itemsPerPage: 5,
+		scrollToTopOnChange: true
     });
 });</code></pre>
                 </div><!-- #js-code-3 -->
@@ -296,38 +299,20 @@ wrappers to define pages.  This allows for items to be filtered dynamically with
             </div><!-- .tabs -->
             <div id="pagination-3" class="example-pagination">
                 <div class="results">
-                    <div class="item">Item 1</div>
-                    <div class="item">Item 2</div>
-                    <div class="item">Item 3</div>
-                    <div class="item">Item 4</div>
-                    <div class="item">Item 5</div>
-                    <div class="item">Item 6</div>
-                    <div class="item">Item 7</div>
-                    <div class="item">Item 8</div>
-                    <div class="item">Item 9</div>
-                    <div class="item">Item 10</div>
-                    <div class="item">Item 11</div>
-                    <div class="item">Item 12</div>
-                    <div class="item">Item 13</div>
-                    <div class="item">Item 14</div>
-                    <div class="item">Item 15</div>
-                    <div class="item">Item 16</div>
-                    <div class="item">Item 17</div>
-                    <div class="item">Item 18</div>
-                    <div class="item">Item 19</div>
-                    <div class="item">Item 20</div>
-                    <div class="item">Item 21</div>
-                    <div class="item">Item 22</div>
-                    <div class="item">Item 23</div>
-                    <div class="item">Item 24</div>
-                    <div class="item">Item 25</div>
-                    <div class="item">Item 26</div>
-                    <div class="item">Item 27</div>
-                    <div class="item">Item 29</div>
-                    <div class="item">Item 29</div>
-                    <div class="item">Item 30</div>
-                    <div class="item">Item 31</div>
-                    <div class="item">Item 32</div>
+                    <img src="examples/images/cat-1.jpg" alt="" class="pic" />
+                    <img src="examples/images/cat-2.jpg" alt="" class="pic" />
+                    <img src="examples/images/cat-3.jpg" alt="" class="pic" />
+                    <img src="examples/images/cat-4.jpg" alt="" class="pic" />
+                    <img src="examples/images/cat-5.jpg" alt="" class="pic" />
+                    <img src="examples/images/cat-6.jpg" alt="" class="pic" />
+                    <img src="examples/images/cat-7.jpg" alt="" class="pic" />
+                    <img src="examples/images/cat-8.jpg" alt="" class="pic" />
+                    <img src="examples/images/cat-9.jpg" alt="" class="pic" />
+                    <img src="examples/images/cat-10.jpg" alt="" class="pic" />
+                    <img src="examples/images/cat-11.jpg" alt="" class="pic" />
+                    <img src="examples/images/cat-12.jpg" alt="" class="pic" />
+                    <img src="examples/images/cat-13.jpg" alt="" class="pic" />
+                    <img src="examples/images/cat-14.jpg" alt="" class="pic" />
                 </div>
             </div><!-- #pagination-3 -->
         </div><!-- .example-wrapper -->
@@ -396,13 +381,16 @@ wrappers to define pages.  This allows for items to be filtered dynamically with
         });
         // Example 3
         pagination3 = new $.smFilteredPagination($("#pagination-3"), {
-            pagerHeader: "pagerHeader3",
-            showPagerFooter: false,
-            textFirst: "<<",
-            textPrev: "<",
-            textNext: ">",
-            textLast: ">>",
-            scrollToTopOnChange: true
+			pagerItems: ".pic",
+			showPagerHeader: false,
+			showPagerFooter: true,
+			pagerFooter: "pagerFooter3",
+			textFirst: "<<",
+			textPrev: "<",
+			textNext: ">",
+			textLast: ">>",
+			itemsPerPage: 5,
+			scrollToTopOnChange: true
         });
         
         // using public methods
@@ -461,6 +449,7 @@ wrappers to define pages.  This allows for items to be filtered dynamically with
     #pagination-1 { background-color:#efc; }
     #pagination-2 { background-color:#edf; }
     #pagination-3 { background-color:#dfe; }
+    #pagination-3 .pic { width:460px; }
     </style>
     <script src="js/highlight.pack.js"></script>
     <script>
