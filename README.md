@@ -1,6 +1,6 @@
 smFilteredPagination
 ====================
-Version: 0.5
+Version: 0.6
 Author: Tyler Mulligan (www.saltermitchell.com)
 
 ## Introduction
