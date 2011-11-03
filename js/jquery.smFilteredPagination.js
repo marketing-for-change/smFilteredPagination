@@ -15,6 +15,8 @@
 ;(function($) {
     $.smFilteredPagination = function(el, options) {
 
+        var isNumber = new RegExp("^[0-9]+$");
+
         var defaults = {
             pagerItems: "div.item",             // item class
             pagerItemsWrapper: "div.results",   // item wrapping class or id
@@ -39,8 +41,12 @@
             textLast: "Last",                   // "last" text
             hiddenClass: "hide",                // name of hidden class
             filteredClassList: ".filtered",     // comma separated list of filtered classes
-            handleLocationHash: true,           // handle page numbers with the location hash, page.php#5
             scrollToTopOnChange: false,         // Scroll to the top of the page on change.
+            handleLocationHash: true,           // handle page numbers with the location hash, page.php#5
+            locationHashHandler: function(el) { // function on how to handle the page hash
+                var hash = parseInt(location.hash.split("#")[1]);
+                if (isNumber.test(hash)) { plugin.setCurrentPage(hash); }
+            },
             insertPagerHeader: function(el) {   // insertPagerHeader function, automatically inserts pagerHeader if not found and show is true
                 var pagerContents = '<div id="' + this.pagerHeader + '" class="' + this.pagerClass + '"></div>';
                 if ($("#"+this.pagerHeader).length) { $("#"+this.pagerHeader).html(pagerContents); }
@@ -53,8 +59,6 @@
             }
         };
 
-        var isNumber = new RegExp("^[0-9]+$");
-
         var plugin = this;
         
         plugin.settings = {};
@@ -63,13 +67,13 @@
             plugin.settings = $.extend({}, defaults, options);
             plugin.el = el;
 
+            plugin.settings.currentPage = 1;
+            plugin.settings.pageCount = 1;
+
             // setup ids and classes with their prefixes to keep the code below clean
             plugin.settings.tpagerClass   = "."+plugin.settings.pagerClass;
             plugin.settings.tpagerHeader  = "#"+plugin.settings.pagerHeader;
             plugin.settings.tpagerFooter  = "#"+plugin.settings.pagerFooter;
-
-            plugin.settings.currentPage = 1;
-            plugin.settings.pageCount = 1;
 
             plugin.rebuild();
     
@@ -83,13 +87,9 @@
 
             }); /* end click action */
 
-            // setup location hash
-            if (plugin.settings.handleLocationHash) {
+            if (plugin.settings.handleLocationHash) { // setup location hash handler
                 if (location.hash!="#" && location.hash!="" && location.hash!=null) {
-                    var hash = parseInt(location.hash.split("#")[1]);
-                    if (isNumber.test(hash)) {
-                        plugin.setCurrentPage(hash);
-                    }
+                    plugin.settings.locationHashHandler(plugin.el);
                 }
             }
     
@@ -168,9 +168,9 @@
             plugin.el.find(plugin.settings.tpagerClass+" li a").removeClass("current");
 
             if (isNumber.test(clickedPage)) {
-                var selectedPage = clickedPage;
-                var start = (clickedPage-1)*plugin.settings.itemsPerPage;
-                var end = ((clickedPage-1)*plugin.settings.itemsPerPage)+plugin.settings.itemsPerPage;
+                var selectedPage = (clickedPage > pageCount) ? pageCount : clickedPage;
+                var start = (selectedPage-1)*plugin.settings.itemsPerPage;
+                var end = ((selectedPage-1)*plugin.settings.itemsPerPage)+plugin.settings.itemsPerPage;
             } else {
                 if (clickedPage == "first") {
                     var selectedPage = 1;
