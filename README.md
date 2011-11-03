@@ -75,8 +75,7 @@ http://www.dev4.us/jquery-plugins/smFilteredPagination/
 
 ## TODO:
 
-- More public methods (getCurrentPage, getCurrentPageItemTop,
-	getCurrentPageItemBottom, getItemCount, getFilteredCount)
+- More public methods (getCurrentPageItemTop, getCurrentPageItemBottom, getItemCount, getFilteredCount)
 - Default themes
 - More simple examples
 - Stand-alone examples
