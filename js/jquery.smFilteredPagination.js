@@ -43,9 +43,12 @@
             filteredClassList: ".filtered",     // comma separated list of filtered classes
             scrollToTopOnChange: false,         // Scroll to the top of the page on change.
             handleLocationHash: true,           // handle page numbers with the location hash, page.php#5
-            locationHashHandler: function(el) { // function on how to handle the page hash
-                var hash = parseInt(location.hash.split("#")[1]);
-                if (isNumber.test(hash)) { plugin.setCurrentPage(hash); }
+            locationHashHandler: function() {   // function to handle the page hash on page load
+                var page = location.hash.split("#")[1];
+                if (isNumber.test(page)) { plugin.setCurrentPage(page); }
+            },
+            locationHashUpdate: function(page) {// function to handle the page hash on update
+                location.hash = page;
             },
             insertPagerHeader: function(el) {   // insertPagerHeader function, automatically inserts pagerHeader if not found and show is true
                 var pagerContents = '<div id="' + this.pagerHeader + '" class="' + this.pagerClass + '"></div>';
@@ -89,12 +92,11 @@
 
             if (plugin.settings.handleLocationHash) { // setup location hash handler
                 if (location.hash!="#" && location.hash!="" && location.hash!=null) {
-                    plugin.settings.locationHashHandler(plugin.el);
+                    plugin.settings.locationHashHandler();
                 }
             }
     
             return plugin.el;
-
         }; // init
 
         // Used to assist in pager overflow management
@@ -168,6 +170,7 @@
             plugin.el.find(plugin.settings.tpagerClass+" li a").removeClass("current");
 
             if (isNumber.test(clickedPage)) {
+                clickedPage = parseInt(clickedPage);
                 var selectedPage = (clickedPage > pageCount) ? pageCount : clickedPage;
                 var start = (selectedPage-1)*plugin.settings.itemsPerPage;
                 var end = ((selectedPage-1)*plugin.settings.itemsPerPage)+plugin.settings.itemsPerPage;
@@ -199,7 +202,7 @@
                 $("body,html,document").scrollTop(pagingPosition.top);
             }
             plugin.settings.currentPage = selectedPage;
-            location.hash = selectedPage;
+            if (plugin.settings.handleLocationHash) { plugin.settings.locationHashUpdate(selectedPage); }
         }
 
         plugin.getItemsPerPage = function(n) {

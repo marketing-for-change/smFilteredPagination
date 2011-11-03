@@ -347,9 +347,12 @@ wrappers to define pages.  This allows for items to be filtered dynamically with
     filteredClassList: ".filtered",     // comma separated list of filtered classes
     scrollToTopOnChange: false,         // Scroll to the top of the page on change.
     handleLocationHash: true,           // handle page numbers with the location hash, page.php#5
-    locationHashHandler: function(el) { // function on how to handle the page hash
-        var hash = parseInt(location.hash.split("#")[1]);
-        if (isNumber.test(hash)) { plugin.setCurrentPage(hash); }
+    locationHashHandler: function() {   // function to handle the page hash on page load
+        var page = location.hash.split("#")[1];
+        if (isNumber.test(page)) { plugin.setCurrentPage(page); }
+    },
+    locationHashUpdate: function(page) {// function to handle the page hash on update
+        location.hash = page;
     },
     insertPagerHeader: function(el) {   // insertPagerHeader function, automatically inserts pagerHeader if not found and show is true
         var pagerContents = '&lt;div id="' + this.pagerHeader + '" class="' + this.pagerClass + '"&gt;&lt;/div&gt;';
