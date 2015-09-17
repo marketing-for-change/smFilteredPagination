@@ -71,7 +71,7 @@ flexible javascript pagination solution.
 Please read the source and check out the demos for more information.
 
 ## LIVE EXAMPLE
-http://www.dev4.us/jquery-plugins/smFilteredPagination/
+http://saltermitchell.github.io/smFilteredPagination/
 
 ## TODO:
 
